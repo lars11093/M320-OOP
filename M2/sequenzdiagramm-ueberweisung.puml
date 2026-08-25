@@ -1,0 +1,52 @@
+@startuml
+title Use Case: Geld überweisen (Bank-Simulation, D1/bank/src)
+
+actor Benutzer
+participant "BankSimulation" as Sim
+participant "Bank" as Bank
+participant "Konto (von)" as Von
+participant "Konto (nach)" as Nach
+
+Benutzer -> Sim : Menü "Überweisen"\n(vonNr, nachNr, betrag)
+activate Sim
+
+Sim -> Bank : findeKonto(vonNr)
+activate Bank
+Bank --> Sim : von
+deactivate Bank
+
+Sim -> Bank : findeKonto(nachNr)
+activate Bank
+Bank --> Sim : nach
+deactivate Bank
+
+Sim -> Bank : transferieren(von, nach, betrag)
+activate Bank
+
+alt genügend Guthaben
+    Bank -> Von : abheben(betrag)
+    activate Von
+    Von -> Von : kontostand -= betrag
+    Von --> Bank : ok
+    deactivate Von
+
+    Bank -> Nach : einzahlen(betrag)
+    activate Nach
+    Nach -> Nach : kontostand += betrag
+    Nach --> Bank : ok
+    deactivate Nach
+
+    Bank --> Sim : Transfer erfolgreich
+else ungenügend Guthaben
+    Bank -> Von : abheben(betrag)
+    activate Von
+    Von --> Bank : throws IllegalStateException
+    deactivate Von
+    Bank --> Sim : Fehler: ungenügender Kontostand
+end
+
+deactivate Bank
+
+Sim -> Benutzer : Ergebnis anzeigen
+deactivate Sim
+@enduml
