@@ -1,5 +1,14 @@
 # Kompetenznachweis M2 — Sequenzdiagramm
 
+## Lernziele-Checkliste
+
+| # | Lernziel | Erfüllt durch |
+|---|---|---|
+| 1 | Interaktion zwischen Objekten grafisch darstellen | ✅ `sequenzdiagramm-ueberweisung.puml` — Use Case "Überweisen", 5 Objekte, 7 Methodenaufrufe |
+| 2 | Wichtigste UML-Sequenzdiagramm-Symbole kennen | ✅ Alle 6 Symbole unten in "Fragen zur Besprechung" erklärt + im Diagramm verwendet: Message, Swimlane, Activation, Return, Self-Message, `alt`/`else` |
+| 3 | Unterschied dynamisch ↔ statisch kennen | ✅ Abschnitt "Dynamisch vs. statisch" unten |
+| 4 | Sequenzdiagramm mit Tool (PlantUML) umsetzen | ✅ `.puml`-Datei liegt vor + Rendering-Anleitung unten |
+
 ## Use Case
 **Geld überweisen** aus der Bank-Simulation (`D1/bank/src`): `BankSimulation` lässt den
 Benutzer zwei Kontonummern und einen Betrag eingeben und ruft `Bank.transferieren(von, nach, betrag)`
