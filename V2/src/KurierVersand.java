@@ -9,6 +9,8 @@ public class KurierVersand extends Versandart {
     private final double maxDistanzKm;
 
     /**
+     * Erstellt einen neuen Kurierversand.
+     *
      * @param code eindeutiger Kurzcode (z. B. "KUR")
      * @param bezeichnung menschenlesbarer Name
      * @param grundPreis fixer Basispreis in CHF

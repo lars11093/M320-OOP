@@ -10,6 +10,10 @@ import java.util.Scanner;
  */
 public class VersandSimulation {
 
+    /** Reine Konsolenklasse mit statischem Einstiegspunkt - keine Instanzen nötig. */
+    private VersandSimulation() {
+    }
+
     /**
      * Einstiegspunkt: initialisiert die Versandverwaltung mit Startdaten
      * und startet die interaktive Konsolenschleife.

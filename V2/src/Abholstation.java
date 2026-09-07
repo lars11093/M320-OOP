@@ -7,6 +7,8 @@
 public class Abholstation extends Versandart {
 
     /**
+     * Erstellt eine neue Abholstation.
+     *
      * @param code eindeutiger Kurzcode (z. B. "ABH")
      * @param bezeichnung menschenlesbarer Name
      * @param grundPreis fixer Basispreis in CHF (Distanz spielt keine Rolle)

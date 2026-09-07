@@ -9,6 +9,8 @@ public class ExpressVersand extends Versandart {
     private final int garantierteTage;
 
     /**
+     * Erstellt einen neuen Expressversand.
+     *
      * @param code eindeutiger Kurzcode (z. B. "EXP")
      * @param bezeichnung menschenlesbarer Name
      * @param grundPreis fixer Basispreis in CHF

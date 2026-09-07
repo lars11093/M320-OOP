@@ -73,37 +73,58 @@ public abstract class Versandart {
         aktiv = false;
     }
 
-    /** @return der eindeutige Kurzcode dieser Versandart */
+    /**
+     * Liefert den eindeutigen Kurzcode dieser Versandart.
+     * @return der eindeutige Kurzcode dieser Versandart
+     */
     public String getCode() {
         return code;
     }
 
-    /** @return der menschenlesbare Name dieser Versandart */
+    /**
+     * Liefert den menschenlesbaren Namen dieser Versandart.
+     * @return der menschenlesbare Name dieser Versandart
+     */
     public String getBezeichnung() {
         return bezeichnung;
     }
 
-    /** @return der fixe Basispreis in CHF */
+    /**
+     * Liefert den fixen Basispreis dieser Versandart.
+     * @return der fixe Basispreis in CHF
+     */
     public double getGrundPreis() {
         return grundPreis;
     }
 
-    /** @return das maximal zulässige Gewicht in kg */
+    /**
+     * Liefert das maximal zulässige Gewicht dieser Versandart.
+     * @return das maximal zulässige Gewicht in kg
+     */
     public double getMaxGewichtKg() {
         return maxGewichtKg;
     }
 
-    /** @return {@code true}, wenn diese Versandart aktuell aktiv ist */
+    /**
+     * Prüft, ob diese Versandart aktuell aktiv ist.
+     * @return {@code true}, wenn diese Versandart aktuell aktiv ist
+     */
     public boolean istAktiv() {
         return aktiv;
     }
 
-    /** @return Kurzbeschreibung: Name, Code und Aktiv-Status */
+    /**
+     * Liefert eine Kurzbeschreibung dieser Versandart.
+     * @return Kurzbeschreibung: Name, Code und Aktiv-Status
+     */
     public String info() {
         return bezeichnung + " (" + code + ")" + (aktiv ? " [aktiv]" : " [inaktiv]");
     }
 
-    /** @return vollständige Beschreibung inkl. Grundpreis und Maximalgewicht */
+    /**
+     * Liefert die vollständige Beschreibung dieser Versandart.
+     * @return vollständige Beschreibung inkl. Grundpreis und Maximalgewicht
+     */
     public String printOut() {
         return info() + " | Grundpreis CHF " + grundPreis + " | max. " + maxGewichtKg + " kg";
     }
