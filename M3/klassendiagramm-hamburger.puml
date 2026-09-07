@@ -1,0 +1,88 @@
+@startuml
+title Beschreibung B: Hamburger-Bestellung - Decorator-Pattern
+
+interface Bestellbar {
+  +getBeschreibung(): String
+  +getPreis(): double
+}
+
+class Patty {
+  +getBeschreibung(): String
+  +getPreis(): double
+}
+
+abstract class ZutatDecorator {
+  #bestellbar: Bestellbar
+  +ZutatDecorator(Bestellbar)
+  +getBeschreibung(): String
+  +getPreis(): double
+}
+
+class ExtraZwiebeln {
+  +getBeschreibung(): String
+  +getPreis(): double
+}
+
+class ExtraSauce {
+  +getBeschreibung(): String
+  +getPreis(): double
+}
+
+class ExtraBacon {
+  +getBeschreibung(): String
+  +getPreis(): double
+}
+
+class MenuDecorator {
+  -getraenk: String
+  -frenchFries: boolean
+  +getBeschreibung(): String
+  +getPreis(): double
+}
+
+' IST-Beziehungen (Realisierung: Klasse implementiert Interface)
+Bestellbar <|.. Patty
+Bestellbar <|.. ZutatDecorator
+
+' IST-Beziehung (Vererbung: Subklasse erbt von abstrakter Decorator-Basis)
+ZutatDecorator <|-- ExtraZwiebeln
+ZutatDecorator <|-- ExtraSauce
+ZutatDecorator <|-- ExtraBacon
+ZutatDecorator <|-- MenuDecorator
+
+' HAT-Beziehung (Aggregation: Decorator umschliesst ein beliebiges Bestellbar-Objekt)
+ZutatDecorator o--> Bestellbar : dekoriert >
+
+note right of ZutatDecorator
+  Kernidee des Patterns: ZutatDecorator
+  HAT ein Bestellbar (kann ein Patty
+  oder bereits ein anderer Decorator
+  sein) und IST selbst ein Bestellbar.
+  So lassen sich Decorators beliebig
+  verschachteln/stapeln.
+end note
+
+package "Alternative: starre Vererbungshierarchie (NICHT verwendet)" #FFEEEE {
+  class Patty2 as "Patty"
+  class PattyMitZwiebeln
+  class PattyMitBacon
+  class PattyMitZwiebelnUndBacon
+  class PattyMitZwiebelnUndBaconUndSauce
+
+  Patty2 <|-- PattyMitZwiebeln
+  Patty2 <|-- PattyMitBacon
+  PattyMitZwiebeln <|-- PattyMitZwiebelnUndBacon
+  PattyMitBacon <|-- PattyMitZwiebelnUndBacon
+  PattyMitZwiebelnUndBacon <|-- PattyMitZwiebelnUndBaconUndSauce
+}
+
+note bottom
+  Bei n Zutaten braucht die starre Hierarchie bis zu 2^n Klassen
+  (eine pro Kombination) UND führt bei Mehrfachvererbung
+  (z.B. PattyMitZwiebelnUndBacon erbt von zwei Klassen) zum
+  "Deadly Diamond of Death". Das Decorator-Pattern oben braucht
+  dagegen nur EINE neue Klasse pro neuer Zutat, unabhängig
+  davon, wie viele andere Zutaten es schon gibt.
+end note
+
+@enduml
