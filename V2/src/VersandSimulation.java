@@ -3,8 +3,19 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Konsolen-Demo für die Versandverwaltung (Kompetenznachweis V2).
+ * Baut einen Startbestand aus allen vier Versandarten auf und bietet ein
+ * interaktives Menü zum Suchen, Vergleichen und Verwalten von Versandarten.
+ */
 public class VersandSimulation {
 
+    /**
+     * Einstiegspunkt: initialisiert die Versandverwaltung mit Startdaten
+     * und startet die interaktive Konsolenschleife.
+     *
+     * @param args nicht verwendet
+     */
     public static void main(String[] args) {
         System.setOut(new PrintStream(System.out, true, StandardCharsets.UTF_8));
 

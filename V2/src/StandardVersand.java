@@ -5,6 +5,13 @@ public class StandardVersand extends Versandart {
 
     private final double preisProKg;
 
+    /**
+     * @param code eindeutiger Kurzcode (z. B. "STD")
+     * @param bezeichnung menschenlesbarer Name
+     * @param grundPreis fixer Basispreis in CHF
+     * @param maxGewichtKg maximal zulässiges Gewicht in kg
+     * @param preisProKg zusätzlicher Preis pro Kilogramm Gewicht
+     */
     public StandardVersand(String code, String bezeichnung, double grundPreis, double maxGewichtKg, double preisProKg) {
         super(code, bezeichnung, grundPreis, maxGewichtKg);
         this.preisProKg = preisProKg;

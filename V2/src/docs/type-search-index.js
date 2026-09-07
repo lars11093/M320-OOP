@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"<Unnamed>","l":"Abholstation"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"<Unnamed>","l":"ExpressVersand"},{"p":"<Unnamed>","l":"KurierVersand"},{"p":"<Unnamed>","l":"StandardVersand"},{"p":"<Unnamed>","l":"Versandart"},{"p":"<Unnamed>","l":"VersandSimulation"},{"p":"<Unnamed>","l":"VersandVerwaltung"}];updateSearchResults();

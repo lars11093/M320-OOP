@@ -6,6 +6,12 @@
  */
 public class Abholstation extends Versandart {
 
+    /**
+     * @param code eindeutiger Kurzcode (z. B. "ABH")
+     * @param bezeichnung menschenlesbarer Name
+     * @param grundPreis fixer Basispreis in CHF (Distanz spielt keine Rolle)
+     * @param maxGewichtKg maximal zulässiges Gewicht in kg
+     */
     public Abholstation(String code, String bezeichnung, double grundPreis, double maxGewichtKg) {
         super(code, bezeichnung, grundPreis, maxGewichtKg);
     }

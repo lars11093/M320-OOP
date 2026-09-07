@@ -8,6 +8,14 @@ public class ExpressVersand extends Versandart {
     private final double expressZuschlag;
     private final int garantierteTage;
 
+    /**
+     * @param code eindeutiger Kurzcode (z. B. "EXP")
+     * @param bezeichnung menschenlesbarer Name
+     * @param grundPreis fixer Basispreis in CHF
+     * @param maxGewichtKg maximal zulässiges Gewicht in kg (Express akzeptiert nur die Hälfte davon, siehe {@link #akzeptiert})
+     * @param expressZuschlag zusätzlicher Fixzuschlag in CHF für den Express-Service
+     * @param garantierteTage garantierte Lieferdauer in Tagen
+     */
     public ExpressVersand(String code, String bezeichnung, double grundPreis, double maxGewichtKg,
                            double expressZuschlag, int garantierteTage) {
         super(code, bezeichnung, grundPreis, maxGewichtKg);

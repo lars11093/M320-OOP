@@ -8,6 +8,14 @@ public class KurierVersand extends Versandart {
     private final double preisProKm;
     private final double maxDistanzKm;
 
+    /**
+     * @param code eindeutiger Kurzcode (z. B. "KUR")
+     * @param bezeichnung menschenlesbarer Name
+     * @param grundPreis fixer Basispreis in CHF
+     * @param maxGewichtKg maximal zulässiges Gewicht in kg
+     * @param preisProKm zusätzlicher Preis pro Kilometer Distanz
+     * @param maxDistanzKm maximale Distanz in km, ab der diese Versandart nicht mehr verfügbar ist
+     */
     public KurierVersand(String code, String bezeichnung, double grundPreis, double maxGewichtKg,
                           double preisProKm, double maxDistanzKm) {
         super(code, bezeichnung, grundPreis, maxGewichtKg);
