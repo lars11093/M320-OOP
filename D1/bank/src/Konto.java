@@ -28,7 +28,7 @@ public class Konto {
             throw new IllegalArgumentException("Abhebungsbetrag muss positiv sein.");
         }
         if (betrag > kontostand) {
-            throw new IllegalStateException("Ungenuegender Kontostand.");
+            throw new IllegalStateException("Ungenügender Kontostand.");
         }
         kontostand -= betrag;
     }

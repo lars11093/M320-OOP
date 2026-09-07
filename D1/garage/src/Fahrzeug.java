@@ -29,7 +29,7 @@ public class Fahrzeug {
      */
     public void reparieren(double kosten) {
         if (kosten < 0) {
-            throw new IllegalArgumentException("Reparaturkosten duerfen nicht negativ sein.");
+            throw new IllegalArgumentException("Reparaturkosten dürfen nicht negativ sein.");
         }
         this.reparaturKosten += kosten;
         this.repariert = true;

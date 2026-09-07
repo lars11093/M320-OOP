@@ -1,3 +1,7 @@
+import java.io.FileDescriptor;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
@@ -8,6 +12,13 @@ import java.util.Scanner;
 public class FlugSimulation {
 
     public static void main(String[] args) {
+        // Konsole fest auf UTF-8 - Umlaute (ä, ö, ü) werden sonst je nach
+        // Windows-Codepage verstümmelt dargestellt, egal wie das Programm
+        // gestartet wird. Direkt auf den rohen Filedescriptor schreiben
+        // (nicht den bestehenden System.out wrappen!) - sonst wird bereits
+        // korrekt kodierter UTF-8-Text ein zweites Mal kodiert.
+        System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out), true, StandardCharsets.UTF_8));
+
         // KOMPOSITION: jedes Flugzeug erzeugt seine eigenen Triebwerke selbst.
         Flugzeug a320 = new Flugzeug("HB-ABC", "Airbus A320", 3, 2);
         Flugzeug b737 = new Flugzeug("HB-XYZ", "Boeing 737", 3, 2);
@@ -94,11 +105,11 @@ public class FlugSimulation {
                             }
                         }
                     } catch (Exception e) {
-                        System.out.println("Ungueltiges Datumsformat (erwartet JJJJ-MM-TT).");
+                        System.out.println("Ungültiges Datumsformat (erwartet JJJJ-MM-TT).");
                     }
                 }
                 case "3" -> laeuft = false;
-                default -> System.out.println("Ungueltige Auswahl.");
+                default -> System.out.println("Ungültige Auswahl.");
             }
         }
 

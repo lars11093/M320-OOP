@@ -6,13 +6,13 @@ Zwei einfache Konsolen-Implementationen, die die D1-Lernziele zeigen: **Garagen-
 
 ```
 cd D1/garage/src
-javac *.java
+javac -encoding UTF-8 *.java
 java GaragenSimulation
 ```
 
 ```
 cd D1/bank/src
-javac *.java
+javac -encoding UTF-8 *.java
 java BankSimulation
 ```
 

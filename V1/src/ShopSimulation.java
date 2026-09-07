@@ -1,3 +1,5 @@
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,6 +13,11 @@ import java.util.Scanner;
 public class ShopSimulation {
 
     public static void main(String[] args) {
+        // Konsole fest auf UTF-8 - Umlaute (ä, ö, ü) werden sonst je nach
+        // Windows-Codepage verstümmelt dargestellt, egal wie das Programm
+        // gestartet wird.
+        System.setOut(new PrintStream(System.out, true, StandardCharsets.UTF_8));
+
         Shop shop = new Shop();
         Scanner scanner = new Scanner(System.in);
 
@@ -71,7 +78,7 @@ public class ShopSimulation {
                     System.out.println("Entfernt (falls vorhanden).");
                 }
                 case "5" -> laeuft = false;
-                default -> System.out.println("Ungueltige Auswahl.");
+                default -> System.out.println("Ungültige Auswahl.");
             }
         }
 

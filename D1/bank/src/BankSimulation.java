@@ -1,3 +1,5 @@
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Scanner;
 
@@ -7,6 +9,11 @@ import java.util.Scanner;
 public class BankSimulation {
 
     public static void main(String[] args) {
+        // Konsole fest auf UTF-8 - Umlaute (ä, ö, ü) werden sonst je nach
+        // Windows-Codepage verstümmelt dargestellt, egal wie das Programm
+        // gestartet wird.
+        System.setOut(new PrintStream(System.out, true, StandardCharsets.UTF_8));
+
         Bank bank = new Bank();
         Scanner scanner = new Scanner(System.in);
 
@@ -19,7 +26,7 @@ public class BankSimulation {
         while (laeuft) {
             System.out.println();
             System.out.println("=== Bank-Simulation ===");
-            System.out.println("1) Konto eroeffnen");
+            System.out.println("1) Konto eröffnen");
             System.out.println("2) Einzahlen");
             System.out.println("3) Abheben");
             System.out.println("4) Transfer zwischen zwei Konten");
@@ -36,7 +43,7 @@ public class BankSimulation {
                         System.out.print("Startguthaben: ");
                         double start = Double.parseDouble(scanner.nextLine().trim());
                         Konto neu = bank.kontoEroeffnen(inhaber, start);
-                        System.out.println("Konto eroeffnet: " + neu);
+                        System.out.println("Konto eröffnet: " + neu);
                     }
                     case "2" -> {
                         Konto k = kontoAuswaehlen(bank, scanner);
@@ -66,7 +73,7 @@ public class BankSimulation {
                         System.out.print("Kontonummer nach: ");
                         Konto nach = bank.findeKonto(scanner.nextLine().trim());
                         if (von == null || nach == null) {
-                            System.out.println("Mindestens ein Konto wurde nicht gefunden (Kontonummer pruefen, z.B. 1000).");
+                            System.out.println("Mindestens ein Konto wurde nicht gefunden (Kontonummer prüfen, z.B. 1000).");
                             break;
                         }
                         System.out.print("Betrag: ");
@@ -76,7 +83,7 @@ public class BankSimulation {
                     }
                     case "5" -> printListe(bank.getAlleKonten());
                     case "0" -> laeuft = false;
-                    default -> System.out.println("Ungueltige Eingabe.");
+                    default -> System.out.println("Ungültige Eingabe.");
                 }
             } catch (Exception e) {
                 System.out.println("Fehler: " + e.getMessage());

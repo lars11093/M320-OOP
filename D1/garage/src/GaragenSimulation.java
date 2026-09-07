@@ -1,3 +1,5 @@
+import java.io.PrintStream;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Scanner;
 
@@ -7,6 +9,11 @@ import java.util.Scanner;
 public class GaragenSimulation {
 
     public static void main(String[] args) {
+        // Konsole fest auf UTF-8 - Umlaute (ä, ö, ü) werden sonst je nach
+        // Windows-Codepage verstümmelt dargestellt, egal wie das Programm
+        // gestartet wird.
+        System.setOut(new PrintStream(System.out, true, StandardCharsets.UTF_8));
+
         Garage garage = new Garage();
         Scanner scanner = new Scanner(System.in);
 
@@ -50,7 +57,7 @@ public class GaragenSimulation {
                 case "4" -> printListe(garage.getReparierteFahrzeuge());
                 case "5" -> System.out.println("Gesamtkosten: CHF " + garage.getGesamtkosten());
                 case "0" -> laeuft = false;
-                default -> System.out.println("Ungueltige Eingabe.");
+                default -> System.out.println("Ungültige Eingabe.");
             }
         }
         scanner.close();

@@ -14,11 +14,11 @@ Idee: **Flüge und Zeitplan** (aus der Auftragsliste).
 
 ```
 cd D2/src
-javac *.java
+javac -encoding UTF-8 *.java
 java FlugSimulation
 ```
 
-*(Bei verstümmelten Umlauten in der Konsole: `java -Dfile.encoding=UTF-8 FlugSimulation` — reines Terminal-Codepage-Problem, kein Code-Bug.)*
+*(Wichtig: `-encoding UTF-8` beim Kompilieren nicht vergessen, sonst werden Umlaute (ä, ö, ü) beim Kompilieren falsch gelesen und in der Konsole verstümmelt dargestellt.)*
 
 ## Fragen zur Besprechung
 

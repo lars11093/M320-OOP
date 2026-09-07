@@ -1,14 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * KOMPOSITION (starke Abhängigkeit, "starke HAT-Beziehung"):
- * Flugzeug erzeugt seine Triebwerke selbst im Konstruktor (new Triebwerk(...)).
- * Ein Triebwerk wird nirgendwo von aussen übergeben und hat ausserhalb dieses
- * einen Flugzeugs keine sinnvolle Existenz - stirbt das Flugzeug-Objekt, gibt
- * es auch diese Triebwerk-Objekte nicht mehr. Im Klassendiagramm: gefülltes
- * Diamant-Symbol an der Flugzeug-Seite.
- */
 public class Flugzeug {
 
     private final String kennzeichen;
@@ -25,10 +17,6 @@ public class Flugzeug {
         }
     }
 
-    /**
-     * DELEGATION: Flugzeug startet nicht selbst - es delegiert das eigentliche
-     * Starten an jedes seiner Triebwerk-Objekte.
-     */
     public void starten() {
         for (Triebwerk t : triebwerke) {
             t.starten();

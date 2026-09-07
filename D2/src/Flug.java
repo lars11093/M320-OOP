@@ -48,20 +48,10 @@ public class Flug {
         return this.datum.equals(datum);
     }
 
-    /**
-     * DELEGATION: Flug startet das Flugzeug nicht selbst - es ruft nur
-     * flugzeug.starten() auf und überlässt dem Flugzeug, wie das im Detail
-     * passiert (welches wiederum an seine Triebwerke weiterdelegiert).
-     */
     public void boardingAbschliessen() {
         flugzeug.starten();
     }
 
-    /**
-     * DELEGATION + ASSOZIATION: Der Drucker kommt nur als Parameter herein
-     * (kein Attribut von Flug) und der eigentliche Druckvorgang wird an ihn
-     * delegiert - Flug weiss nicht, WIE gedruckt wird.
-     */
     public void druckeBoardingpass(Drucker drucker, Passagier passagier) {
         String text = "Boardingpass\nFlug: " + flugnummer + "\nPassagier: " + passagier.getName();
         drucker.druckeText(text);
