@@ -34,7 +34,7 @@ class ExtraBacon {
 }
 
 class MenuDecorator {
-  -getraenk: String
+  -getränk: String
   -frenchFries: boolean
   +getBeschreibung(): String
   +getPreis(): double
