@@ -1,4 +1,5 @@
 /**
+ * Hilfe AI
  * Abstrakte Superklasse für alle Versandarten.
  *
  * <p>Enthält alles, was jede Versandart gemeinsam hat (gemeinsame Attribute).

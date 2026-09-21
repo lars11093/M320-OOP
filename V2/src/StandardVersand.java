@@ -7,7 +7,7 @@ public class StandardVersand extends Versandart {
 
     /**
      * Erstellt einen neuen Standardversand.
-     *
+     *+
      * @param code eindeutiger Kurzcode (z. B. "STD")
      * @param bezeichnung menschenlesbarer Name
      * @param grundPreis fixer Basispreis in CHF
