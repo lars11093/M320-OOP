@@ -1,8 +1,9 @@
 import java.util.Locale;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class WetterKonsole {
-    private final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
 
     public void zeigeBegruessung() {
         System.out.println("=== Wetterberatung für Zürich, Bern und Basel ===");

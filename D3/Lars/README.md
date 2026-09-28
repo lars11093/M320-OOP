@@ -20,6 +20,10 @@ In PowerShell im Ordner `D3\Lars\src`:
 
 ```powershell
 chcp 65001
+$utf8 = [System.Text.UTF8Encoding]::new($false)
+[Console]::InputEncoding = $utf8
+[Console]::OutputEncoding = $utf8
+$OutputEncoding = $utf8
 javac -encoding UTF-8 (Get-ChildItem -Filter '*.java' | ForEach-Object { $_.Name })
 java WetterApp
 ```
